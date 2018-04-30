@@ -1,0 +1,194 @@
+<!DOCTYPE>
+<html>
+
+<link rel="stylesheet" type ="text/css" href="./css.css">
+<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Open+Sans+Condensed:300" rel="stylesheet">
+<head>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+ <script src="https://code.jquery.com/jquery.js"></script>
+    <title>Friend Finder</title>
+</head>
+<body>
+  <header>
+    <h1> Friend Finder</h1>
+  </header>
+    
+
+    <!-- QUIZ BODY -->
+
+    <container id="quiz">
+
+    <form action="">
+    Name: <br>
+      <input type = "text" id = "name">
+      <br>
+    Photo: <br>
+    <input type ="text" id ="picture">
+    <br><br>
+
+      <label for ="question_one"><strong>Question 1</strong></label><br><br>
+      <div>I like to maintain an active social life.</div>
+        <select id="questionOne">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <br><br>
+        
+     <label for ="question_two"><strong>Question 2</strong></label><br><br>
+      <div>I drink alcohol.</div>
+        <select id="questionTwo">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <br><br>
+
+        <label for ="question_three"><strong>Question 3</strong></label><br><br>
+        <div>Spirituality is important to me.</div>
+        <select id="questionThree">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <br><br>
+
+    <label for ="question_four"><strong>Question 4</strong></label><br><br>
+        <div>I am career oriented.</div>
+        <select id="questionFour">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <br><br>
+
+    <label for ="question_five"><strong>Question 5</strong></label><br><br>
+        <div>I am looking to start a family.</div>
+        <select id="questionFive">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <br><br>
+
+    <label for ="question_six"><strong>Question 6</strong></label><br><br>
+        <div>I have or want pets.</div>
+        <select id="questionSix">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <br><br>
+
+
+     <label for ="question_seven"><strong>Question 7</strong></label><br><br>
+        <div>I am very interested in traveling.</div>
+        <select id="questionSeven">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <br><br>
+
+
+     <label for ="question_eight"><strong>Question 8</strong></label><br><br>
+        <div>Trust is the most important aspect in a relationship.</div>
+        <select id="questionEight">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <br><br>
+
+
+    <label for ="question_nine"><strong>Question 9</strong></label><br><br>
+        <div>I am a very sexual person.</div>
+        <select id="questionNine">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <br><br>
+
+
+    <label for ="question_ten"><strong>Question 10</strong></label><br><br>
+        <div>Intellect and personality is more important that outward appearance. </div>
+        <select id="questionTen">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <br><br>
+
+    <button id="submit">Get Results</button>
+
+      </form>
+    </container>
+
+
+    <script type ="text/javascript">
+
+
+      $("#submit").on("click", function(event) {
+
+          event.preventDefault();
+
+
+          var array = JSON.stringify([$("#questionOne").val(), $("#questionTwo").val(), $("#questionThree").val(), $("#questionFour").val(), $("#questionFive").val(), $("#questionSix").val(), $("#questionSeven").val(), $("#questionEight").val(), $("#questionNine").val(), $("#questionTen").val() ]);
+
+
+          //making an object to hold user input
+          var userData = {
+              name: $("#name").val(),
+              photo: $("#picture").val(),
+              scores: array 
+
+          }
+
+          console.log(userData);
+
+
+        //posting through the API call
+        $.post("/api/friends", userData, function(data) {
+
+          if (data) {
+            alert("Information posted!");
+          }
+          else {
+            alert("Something went wrong, try again");
+          }
+
+
+
+        });
+
+
+
+        }); //close of onclick
+
+
+</script>
+</body>
+</html>

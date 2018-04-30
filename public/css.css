@@ -1,0 +1,46 @@
+h1 {
+	color: white;
+	font-size: 50px;
+	font-family: 'Cormorant Garamond', serif;
+}
+
+#title {
+	color: white;
+
+}
+
+header {
+	height: 70px;
+	margin-bottom: 30px;
+	border-bottom: 5px solid gold;
+	
+	width: 70%;
+	
+
+	
+}
+
+body {
+	background-color: 09092a;
+	}
+
+form {
+	color: white;
+}
+
+#because {
+	color: white;
+	margin-left: 50%;
+	background-image: url( "http://singularcity.com/wp-content/uploads/2011/10/online-dating.jpg");
+}
+
+#dating {
+	color:white;
+	margin-left: 45%;
+
+}
+
+#pictures: {
+	height: 100px;
+	background-image: url("background-image: url( "http://singularcity.com/wp-content/uploads/2011/10/online-dating.jpg");");
+}
